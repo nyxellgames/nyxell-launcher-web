@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nyxell Launcher - Descargar</title>
+    <link rel="icon" type="image/png" href="nyxell.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,25 +22,49 @@
     </header>
 
     <main>
-        <h1 class="section-title">Descargas Disponibles</h1>
+        <div class="hero">
+            <h1>Descarga Nyxell Launcher</h1>
+            <p>La experiencia definitiva para Minecraft en Windows</p>
+            <div style="margin-top: 25px;">
+                <a href="download2.html" id="download-btn" class="btn">Descargar Nyxell Launcher v1.0.0</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Requisitos del Sistema</h2>
         <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
-                        <th>Acción</th>
-                        <th>Nombre</th>
-                        <th>Sistema Operativo</th>
-                        <th>Versión</th>
+                        <th>Componente</th>
+                        <th>Requisitos Mínimos</th>
+                        <th>Requisitos Recomendados</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <a href="https://github.com/TU_USUARIO/TU_REPO/releases/download/v1.0.0/Nyxell.Launcher.Setup.1.0.0.exe" class="btn" onclick="iniciarDescarga(event, this.href)">Descargar</a>
-                        </td>
-                        <td>Nyxell Launcher Setup 1.0.0</td>
-                        <td>Windows</td>
-                        <td>v1.0.0</td>
+                        <td>Sistema Operativo</td>
+                        <td>Windows 10 (64-bits)</td>
+                        <td>Windows 10 / 11 (64-bits)</td>
+                    </tr>
+                    <tr>
+                        <td>Procesador</td>
+                        <td>Intel Core i3-3210 / AMD A8-7600</td>
+                        <td>Intel Core i5-4690 / AMD Ryzen 3 1300X</td>
+                    </tr>
+                    <tr>
+                        <td>Memoria RAM</td>
+                        <td>4 GB</td>
+                        <td>8 GB o superior</td>
+                    </tr>
+                    <tr>
+                        <td>Tarjeta Gráfica</td>
+                        <td>Intel HD Graphics 4000 / AMD Radeon R5</td>
+                        <td>NVIDIA GeForce GTX 750 Ti / AMD Radeon R7 260X</td>
+                    </tr>
+                    <tr>
+                        <td>Almacenamiento</td>
+                        <td>2 GB de espacio disponible</td>
+                        <td>4 GB de espacio disponible (SSD recomendada)</td>
                     </tr>
                 </tbody>
             </table>
@@ -51,18 +76,16 @@
     </footer>
 
     <script>
-        function iniciarDescarga(event, url) {
-            event.preventDefault();
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = '';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            setTimeout(() => {
-                window.location.href = 'download2.html';
-            }, 1000);
-        }
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const fileUrl = 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/Nyxell.Launcher.Setup.1.0.0.exe';
+            
+            const tempLink = document.createElement('a');
+            tempLink.href = fileUrl;
+            tempLink.setAttribute('download', '');
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        });
     </script>
 </body>
 </html>
