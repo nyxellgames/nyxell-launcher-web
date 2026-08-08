@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyxell Launcher - Descargar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">NYXELL</a>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="equipo.html">Equipo</a>
+            <a href="download.html" class="active">Descargar</a>
+            <a href="politica.html">Política y Privacidad</a>
+            <a href="comentarios.html">Comentarios</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="section-title">Descargas Disponibles</h1>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Acción</th>
+                        <th>Nombre</th>
+                        <th>Sistema Operativo</th>
+                        <th>Versión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://github.com/TU_USUARIO/TU_REPO/releases/download/v1.0.0/Nyxell.Launcher.Setup.1.0.0.exe" class="btn" onclick="iniciarDescarga(event, this.href)">Descargar</a>
+                        </td>
+                        <td>Nyxell Launcher Setup 1.0.0</td>
+                        <td>Windows</td>
+                        <td>v1.0.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Nyxell Launcher. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function iniciarDescarga(event, url) {
+            event.preventDefault();
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = '';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => {
+                window.location.href = 'download2.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
