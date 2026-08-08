@@ -124,6 +124,41 @@ main {
     text-align: center;
 }
 
+/* Seccion "¿Qué es?" en paralelo con imagen */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    display: flex;
+    align-items: center;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-image-card {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -348,5 +383,9 @@ footer {
 
     .hero h1, .hero-thanks h1 {
         font-size: 2rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
     }
 }
