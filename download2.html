@@ -24,18 +24,43 @@
     <main>
         <div class="hero-thanks">
             <h1>¡Gracias por descargar Nyxell Launcher!</h1>
-            <p>Tu descarga debería comenzar en unos segundos.</p>
+            <p id="thanks-subtitle">Tu descarga debería comenzar en unos segundos...</p>
         </div>
 
         <div class="card" style="text-align: center; margin-top: 30px;">
             <h3>¿La descarga no inició automáticamente?</h3>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">Si tu navegador bloqueó el ejecutable o no comenzó la descarga, haz clic en el botón de abajo:</p>
-            <a href="https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/Nyxell.Launcher.Setup.1.0.0.exe" class="btn" download>Reintentar Descarga Directa</a>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">Si tu navegador bloqueó el archivo o no comenzó la descarga, haz clic en el botón de abajo:</p>
+            <a id="retry-btn" href="#" class="btn" download>Reintentar Descarga Directa</a>
         </div>
     </main>
 
     <footer>
         &copy; Nyxell Launcher. Todos los derechos reservados.
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const WIN_URL = 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/Nyxell.Launcher.Setup.1.0.0.exe';
+            const LINUX_URL = 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/nyxell-launcher-1.0.0.zip';
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const os = urlParams.get('os');
+
+            let downloadUrl = WIN_URL;
+            if (os === 'linux') {
+                downloadUrl = LINUX_URL;
+            }
+
+            const retryBtn = document.getElementById('retry-btn');
+            retryBtn.href = downloadUrl;
+
+            const tempLink = document.createElement('a');
+            tempLink.href = downloadUrl;
+            tempLink.setAttribute('download', '');
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        });
+    </script>
 </body>
 </html>
