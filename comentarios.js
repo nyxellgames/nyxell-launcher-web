@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'TU_SUPABASE_URL';
-const SUPABASE_KEY = 'TU_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://advrzisyjtnwmpargrhr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ZhAhnFeu0KaZnrUAg-kysw_9mH_WVtK';
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function cargarComentarios() {
