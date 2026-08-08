@@ -23,18 +23,96 @@
 
     <main>
         <div class="hero">
-            <h1>Descarga Nyxell Launcher</h1>
-            <p>La experiencia definitiva para Minecraft en Windows</p>
-            <div style="margin-top: 25px;">
-                <a href="download2.html" id="download-btn" class="btn">Descargar Nyxell Launcher v1.0.0</a>
+            <h1>Descarga Nyxell Launcher v1.0.0</h1>
+            <p>Elige la versión correspondiente a tu sistema operativo</p>
+        </div>
+
+        <div class="download-grid">
+            <div class="os-card win-card" id="card-win">
+                <div class="recommended-badge" id="badge-win">Recomendado para tu sistema</div>
+                <div class="os-info">
+                    <h2>Windows 10 / 11</h2>
+                    <p>Instalador oficial `.exe` para sistemas Windows de 64 bits.</p>
+                    <a href="download2.html?os=win" class="btn os-btn">
+                        <span>Descargar (.EXE)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="os-card linux-card" id="card-linux">
+                <div class="recommended-badge" id="badge-linux">Recomendado para tu sistema</div>
+                <div class="os-info">
+                    <h2>Linux (General)</h2>
+                    <p>Paquete compreso `.zip` optimizado para distribuciones Linux.</p>
+                    <a href="download2.html?os=linux" class="btn os-btn">
+                        <span>Descargar (.ZIP)</span>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <h2 class="section-title">Requisitos del Sistema</h2>
+        <h2 class="section-title" style="margin-top: 50px;">Requisitos del Sistema</h2>
         <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
+                        <th>Componente</th>
+                        <th>Requisitos Mínimos</th>
+                        <th>Requisitos Recomendados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sistema Operativo</td>
+                        <td>Windows 10 (64-bits) / Linux x64</td>
+                        <td>Windows 10 / 11 / Ubuntu 22.04+</td>
+                    </tr>
+                    <tr>
+                        <td>Procesador</td>
+                        <td>Intel Core i3-3210 / AMD A8-7600</td>
+                        <td>Intel Core i5-4690 / AMD Ryzen 3 1300X</td>
+                    </tr>
+                    <tr>
+                        <td>Memoria RAM</td>
+                        <td>4 GB</td>
+                        <td>8 GB o superior</td>
+                    </tr>
+                    <tr>
+                        <td>Tarjeta Gráfica</td>
+                        <td>Intel HD Graphics 4000 / AMD Radeon R5</td>
+                        <td>NVIDIA GeForce GTX 750 Ti / AMD Radeon R7 260X</td>
+                    </tr>
+                    <tr>
+                        <td>Almacenamiento</td>
+                        <td>2 GB de espacio disponible</td>
+                        <td>4 GB de espacio disponible (SSD recomendada)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Nyxell Launcher. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const platform = navigator.platform.toLowerCase();
+            const userAgent = navigator.userAgent.toLowerCase();
+
+            const isLinux = platform.includes('linux') || userAgent.includes('linux');
+
+            if (isLinux) {
+                document.getElementById('card-linux').classList.add('active-recommend');
+            } else {
+                // Por defecto Windows
+                document.getElementById('card-win').classList.add('active-recommend');
+            }
+        });
+    </script>
+</body>
+</html>                    <tr>
                         <th>Componente</th>
                         <th>Requisitos Mínimos</th>
                         <th>Requisitos Recomendados</th>
