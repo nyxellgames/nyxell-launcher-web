@@ -1,5 +1,5 @@
 const SUPABASE_URL = 'https://advrzisyjtnwmpargrhr.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_ZhAhnFeu0KaZnrUAg-kysw_9mH_WVtK';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFkdnJ6aXN5anRud21wYXJncmhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMDYyMzUsImV4cCI6MjEwMTc4MjIzNX0.QYV0Up32osIEqeOl_oIcQcUeaA3nc7zLw8tQupVGSJA';
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function cargarNoticias() {
@@ -10,6 +10,7 @@ async function cargarNoticias() {
         .order('id', { ascending: false });
 
     if (error) {
+        console.error("Error Supabase:", error);
         container.innerHTML = '<p>Error al cargar las noticias.</p>';
         return;
     }
