@@ -29,7 +29,9 @@
 
         <div class="card" style="text-align: center; margin-top: 30px;">
             <h3>¿La descarga no inició automáticamente?</h3>
-            <p style="margin-bottom: 20px; color: var(--text-muted);">Si tu navegador bloqueó el archivo o no comenzó la descarga, haz clic en el botón de abajo:</p>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">
+                Si tu navegador bloqueó el ejecutable o no comenzó la descarga, haz clic en el botón de abajo:
+            </p>
             <a id="retry-btn" href="#" class="btn" download>Reintentar Descarga Directa</a>
         </div>
     </main>
@@ -40,22 +42,26 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const WIN_URL = 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/Nyxell.Launcher.Setup.1.0.0.exe';
-            const LINUX_URL = 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/nyxell-launcher-1.0.0.zip';
+            const DOWNLOAD_URLS = {
+                '1.1.0': 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.1.0/Nyxell.Launcher.Setup.1.1.0.exe',
+                '1.0.0': 'https://github.com/nyxellgames/nyxell-launcher-web/releases/download/1.0.0/Nyxell.Launcher.Setup.1.0.0.exe'
+            };
 
             const urlParams = new URLSearchParams(window.location.search);
-            const os = urlParams.get('os');
+            const selectedVer = urlParams.get('ver') || '1.1.0';
 
-            let downloadUrl = WIN_URL;
-            if (os === 'linux') {
-                downloadUrl = LINUX_URL;
-            }
+            const targetUrl = DOWNLOAD_URLS[selectedVer] || DOWNLOAD_URLS['1.1.0'];
+
+            const subtitle = document.getElementById('thanks-subtitle');
+            subtitle.textContent = `Tu descarga de Nyxell Launcher v${selectedVer} debería comenzar en unos segundos...`;
 
             const retryBtn = document.getElementById('retry-btn');
-            retryBtn.href = downloadUrl;
+            retryBtn.href = targetUrl;
+            retryBtn.textContent = `Reintentar Descarga Directa (v${selectedVer})`;
 
+            // Disparar la descarga automática
             const tempLink = document.createElement('a');
-            tempLink.href = downloadUrl;
+            tempLink.href = targetUrl;
             tempLink.setAttribute('download', '');
             document.body.appendChild(tempLink);
             tempLink.click();
