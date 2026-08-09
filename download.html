@@ -23,29 +23,28 @@
 
     <main>
         <div class="hero">
-            <h1>Descarga Nyxell Launcher v1.0.0</h1>
-            <p>Elige la versión correspondiente a tu sistema operativo</p>
+            <h1>Descarga Nyxell Launcher</h1>
+            <p>Selecciona la versión que deseas instalar para Windows</p>
         </div>
 
         <div class="download-grid">
-            <div class="os-card win-card" id="card-win">
-                <div class="recommended-badge" id="badge-win">Recomendado para tu sistema</div>
+            <div class="os-card win-card active-recommend" id="card-v110">
+                <div class="recommended-badge" style="display: block;">Última Versión (Recomendado)</div>
                 <div class="os-info">
-                    <h2>Windows 10 / 11</h2>
-                    <p>Instalador oficial `.exe` para sistemas Windows de 64 bits.</p>
-                    <a href="download2.html?os=win" class="btn os-btn">
-                        <span>Descargar (.EXE)</span>
+                    <h2>Nyxell Launcher v1.1.0</h2>
+                    <p>Instalador oficial `.exe` para Windows (64 bits). Incluye las últimas mejoras de estabilidad y optimización.</p>
+                    <a href="download2.html?ver=1.1.0" class="btn os-btn">
+                        <span>Descargar v1.1.0 (.EXE)</span>
                     </a>
                 </div>
             </div>
 
-            <div class="os-card linux-card" id="card-linux">
-                <div class="recommended-badge" id="badge-linux">Recomendado para tu sistema</div>
+            <div class="os-card win-card" id="card-v100">
                 <div class="os-info">
-                    <h2>Linux (General)</h2>
-                    <p>Paquete compreso `.zip` optimizado para distribuciones Linux.</p>
-                    <a href="download2.html?os=linux" class="btn os-btn">
-                        <span>Descargar (.ZIP)</span>
+                    <h2>Nyxell Launcher v1.0.0</h2>
+                    <p>Versión inicial de lanzamiento para Windows (64 bits). Opción legacy anterior.</p>
+                    <a href="download2.html?ver=1.0.0" class="btn os-btn">
+                        <span>Descargar v1.0.0 (.EXE)</span>
                     </a>
                 </div>
             </div>
@@ -64,8 +63,8 @@
                 <tbody>
                     <tr>
                         <td>Sistema Operativo</td>
-                        <td>Windows 10 (64-bits) / Linux x64</td>
-                        <td>Windows 10 / 11 / Ubuntu 22.04+</td>
+                        <td>Windows 10 (64-bits)</td>
+                        <td>Windows 10 / 11 (64-bits)</td>
                     </tr>
                     <tr>
                         <td>Procesador</td>
@@ -95,21 +94,5 @@
     <footer>
         &copy; Nyxell Launcher. Todos los derechos reservados.
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const platform = navigator.platform.toLowerCase();
-            const userAgent = navigator.userAgent.toLowerCase();
-
-            const isLinux = platform.includes('linux') || userAgent.includes('linux');
-
-            if (isLinux) {
-                document.getElementById('card-linux').classList.add('active-recommend');
-            } else {
-                // Por defecto Windows
-                document.getElementById('card-win').classList.add('active-recommend');
-            }
-        });
-    </script>
 </body>
 </html>
